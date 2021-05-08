@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+
+<body>
+
+	<body>
+		<header>
+			<nav class="container flex">
+				<div class="container">
+					<h4><a href="{{ url_for('index') }}">Game</a></h4>
+				</div>
+				<div class="container">
+					<h4><a href="{{ url_for('about') }}">About</a></h4>
+				</div>
+				<div class="container">
+					<a href="{{ url_for('customize') }}">Customize</a></h4>
+				</div>
+			</nav>
+		</header>
+		<div class="container">
+			{% block content %} {% endblock %}
+		</div>
+	</body>
+
+</html>

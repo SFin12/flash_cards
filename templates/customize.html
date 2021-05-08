@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="customize">
+		<h1>Question and Answer</h1>
+	</div>
+	<form action="/customize/" class="container"  method="POST">
+		<label for="question">Question</label>
+	<input type="text" id="question" name="question">
+	<br>
+	<label for="answer">Answer</label>
+	<input type="text" id="answer" name="answer">
+<label for="submit"></label>
+<input type="button" value="submit" id="submit" name="submit" onclick="addQnA()">
+		</form>
+	<script src="../static/js/data.js" async></script>
+
+</body>
+</html>
+{% endblock %}

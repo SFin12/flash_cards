@@ -1,0 +1,53 @@
+html {
+	box-sizing: border-box;
+  text-align: center;
+  font-size: 2rem
+}
+
+nav {
+	display: flex;
+	justify-content: space-between
+}
+
+.container {
+	margin: 10px;
+	padding: 10px
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+}
+
+.card {
+  width: 300px;
+	height: 150px;
+  margin: 50px auto;
+  padding: 50px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .2);
+  border-radius: 2vw;
+  color: wheat;
+  background: linear-gradient(rgb(10,10,200), rgb(50,50,200));
+}
+
+#qa {
+    display: inline-block;
+		margin: auto;
+}
+
+
+input {
+	display: block;
+	width: 40%;
+	font-size: .7rem;
+	margin: auto;
+}
+
+#submit {
+	margin-top: 15px;
+	width: 150px;
+	heigh: 50px;
+	border-radius: 2vw;
+}
+
+

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+	<main class="game">
+		<h1>Trivia Game</h1>
+		<section>
+			<div class="card flex" id="card1">
+				<p id="qa"></p>
+			</div>
+		</section>
+	</main>
+	<script src="../static/js/data.js">
+	</script>
+	<script src="{{ url_for('static', filename='js/script.js') }}">
+	</script>
+</body>
+
+</html>
+{% endblock %}
