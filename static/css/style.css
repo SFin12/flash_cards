@@ -1,8 +1,19 @@
 html {
 	box-sizing: border-box;
   text-align: center;
-  font-size: 2rem
+  font-size: 2rem;
 }
+
+.day_mode {
+	color: black;
+	background-color: whitesmoke;
+}
+
+.night_mode {
+	color: whitesmoke;
+	background-color: black;
+}
+
 
 nav {
 	display: flex;
@@ -41,6 +52,12 @@ input {
 	width: 40%;
 	font-size: .7rem;
 	margin: auto;
+}
+
+#restart {
+	width: 20%;
+	min-width: 150px;
+	max-width: 250px;
 }
 
 #submit {

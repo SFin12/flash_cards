@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import json
-from sqlite import commit_data
+from sqlite import commit_data, restart
 
 app = Flask(__name__)
 
@@ -14,6 +14,11 @@ def card_click():
     if request.method == 'GET':
         qna = commit_data()
         return jsonify(qna)
+
+@app.route('/restart', methods=['GET', 'POST'])
+def reset():
+    restart()
+    return jsonify("restarted questions")
 
 @app.route("/customize/", methods=["GET", "POST"])
 def customize():
