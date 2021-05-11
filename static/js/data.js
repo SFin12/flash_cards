@@ -1,7 +1,4 @@
-let questionAndAnswers = [
-    ['2 + 2 = ?', 4],
-    ['First president', 'George Washington']
-]
+
 
 function clearInput(){
     let q = document.getElementById('question').value = '';
@@ -40,22 +37,7 @@ function addQnA() {
             console.log(`Response status was not 200: ${response.status}`);
         }
 
-        response.json().then(function (data) {
-            for(arr of data){
-                questionAndAnswers.push(arr);
-            }
             clearInput();
-            
-        })
-
-    })/*.then(function (text) {
-
-        console.log('POST response: ');
-
-        // Should be 'OK' if everything was successful
-        console.log(text);
-    });*/
-    
-
+    })
 }
 

@@ -6,7 +6,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return render_template('index.html')
+      
+    return render_template('index.html')
+
+@app.route('/card', methods=['GET'])
+def card_click():
+    if request.method == 'GET':
+        qna = commit_data()
+        return jsonify(qna)
 
 @app.route("/customize/", methods=["GET", "POST"])
 def customize():

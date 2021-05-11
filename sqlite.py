@@ -1,9 +1,32 @@
 import sqlite3
 import random
 
+unused_index = []
+used_index= []
+
 def random_index(list):
-    index = random.randint(0, len(list)-1)
-    return index
+    for n in range(0, len(list) -1):
+        if n not in used_index and n not in unused_index:
+            unused_index.append(n)
+        print(f"unsued index: {unused_index}")
+    
+    if len(unused_index) > 1: 
+        index = random.randint(1, len(unused_index))
+        print(f'index: {index}')
+        popped = unused_index.pop(index)
+        used_index.append(popped)
+        print(f"popped index: {used_index}")
+        return(popped)
+    else:
+        print(f"out unsued index: {unused_index}")
+        return 0
+
+    
+def restart():
+    global unused_index
+    global used_index
+    unused_index = []
+    used_index = []
 
 
 def commit_data(data=None):
@@ -19,19 +42,16 @@ def commit_data(data=None):
     )""")'''
 
     if data:
+        print(data)
         c.execute("INSERT INTO questions VALUES (?,?)", [data["question"], data["answer"]])
         conn.commit()
 
-    c.execute("SELECT * FROM questions")
+    if not data:
+        c.execute("SELECT * FROM questions")
+        items = c.fetchall()
+        qna = items[random_index(items)]
+        return qna
 
-    items = c.fetchall()
-  
-
-
-    return items
-
-
-    
     conn.close()
 
 
