@@ -5,13 +5,13 @@ unused_index = []
 used_index= []
 
 def random_index(list):
-    for n in range(0, len(list) -1):
+    for n in range(0, len(list)):
         if n not in used_index and n not in unused_index:
             unused_index.append(n)
         print(f"unsued index: {unused_index}")
     
     if len(unused_index) > 1: 
-        index = random.randint(1, len(unused_index))
+        index = random.randint(1, len(unused_index)-1)
         print(f'index: {index}')
         popped = unused_index.pop(index)
         used_index.append(popped)
@@ -49,6 +49,7 @@ def commit_data(data=None):
     if not data:
         c.execute("SELECT * FROM questions")
         items = c.fetchall()
+        print(len(items))
         qna = items[random_index(items)]
         return qna
 

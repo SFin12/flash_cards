@@ -1,7 +1,7 @@
 html {
 	box-sizing: border-box;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 .day_mode {
@@ -17,7 +17,13 @@ html {
 
 nav {
 	display: flex;
-	justify-content: space-between
+	justify-content: space-between;
+	height: 90px;
+}
+
+nav a{
+	font-size: medium;
+	color: black
 }
 
 .container {
@@ -44,7 +50,9 @@ nav {
 #qa {
     display: inline-block;
 		margin: auto;
+		color: yellow;
 }
+
 
 
 input {
@@ -54,17 +62,45 @@ input {
 	margin: auto;
 }
 
-#restart {
-	width: 20%;
-	min-width: 150px;
-	max-width: 250px;
-}
+
 
 #submit {
 	margin-top: 15px;
 	width: 150px;
-	heigh: 50px;
+	height: 50px;
 	border-radius: 2vw;
 }
 
 
+/* Dark and light modes based on system preferences (only tested on mac) */
+:root {
+	--background: white;
+	--color: #2b2b2b;
+  }
+
+  body {
+	background-color: var(--background);
+	color: var(--color);
+  }
+
+  .darko {
+	--background: #2b2b2b;
+	--color: white;
+  }
+
+  @media (prefers-color-scheme: dark) {
+	:root {
+	  --background: #2b2b2b;
+	  --color: white;
+	}
+	nav a{
+		font-size: medium;
+		color: white
+	}
+  }
+
+  .light {
+	--background: white;
+	--color: #2b2b2b;
+  }
+/* End of dark / light mode section */
