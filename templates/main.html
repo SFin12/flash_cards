@@ -1,11 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-	<div class="customize">
-		<h1>Question and Answer</h1>
-	</div>
-	<form action="/customize/" class="container"  method="POST">
-		<label for="category">Category</label>
-		<select name="category" id="category" aria-setsize="8" required>
+	<main class="game">
+		<h1>Flash Card</h1>
+		<label for="choice">Category</label>
+		<select name="category" id="choice" aria-setsize="8" action="{{url_for('index')}}" required>
 			<option value="" disabled selected hidden>Choose Category</option>
 			<option value="entertainment" name="entertainment" id="entertainment">Entertainment</option>
 			<option value="sports" name="sports" id="sports">Sports</option>
@@ -15,13 +13,9 @@
 			<option value="science" name="science" id="science">Science</option>
 			<option value="other" name="other" id="other">Other</option>
 		</select>
-		<label for="question">Question</label>
-	<input type="text" id="question" name="question" maxlength="100">
-	<label for="answer">Answer</label>
-	<input type="text" id="answer" name="answer" maxlength="100">
-<label for="submit"></label>
-<input class="button" type="button" value="Submit" id="submit" name="submit" onclick="addQnA()">
-		</form>
+	</main>
+	
 </body>
+
 </html>
 {% endblock %}

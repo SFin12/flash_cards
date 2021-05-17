@@ -3,22 +3,19 @@ import random
 
 unused_index = []
 used_index= []
+current_category = ""
 
 def random_index(list):
     for n in range(0, len(list)):
         if n not in used_index and n not in unused_index:
             unused_index.append(n)
-        print(f"unsued index: {unused_index}")
     
     if len(unused_index) > 1: 
         index = random.randint(1, len(unused_index)-1)
-        print(f'index: {index}')
         popped = unused_index.pop(index)
         used_index.append(popped)
-        print(f"popped index: {used_index}")
         return(popped)
     else:
-        print(f"out unsued index: {unused_index}")
         return 0
 
     
@@ -30,27 +27,39 @@ def restart():
 
 
 def commit_data(data=None):
-
+    global current_category
+    categories = ["bible", "entertainment", "history", "math", "other", "science", "sports"]
     conn = sqlite3.connect('qna.db')
+
+    #Id, Category, Question, Answer
+    
+    #Categories
+    #CategoryId, CategoryName
+
+    #QuestionAnswer
+    #Id, CategoryId, Question, Answer
+
+    #View
+    #CategoryId, CantegoryName, QQuestion,Answer
+
 
     c = conn.cursor()
 
     #Creates database (not used after creation)
-    '''c.execute("""CREATE TABLE questions (
-    question text,
-    answer text
-    )""")'''
+    for cat in categories:
+        c.execute(f"""CREATE TABLE IF NOT EXISTS {cat} (question text,answer text)""")
 
-    if data:
-        print(data)
-        c.execute("INSERT INTO questions VALUES (?,?)", [data["question"], data["answer"]])
+
+    if data in categories:
+        current_category = data
+    elif data:
+        c.execute(f"INSERT INTO {data['table']} VALUES (?,?)", [data["question"], data["answer"]])
         conn.commit()
 
     if not data:
-        c.execute("SELECT * FROM questions")
+        c.execute(f"SELECT * FROM {current_category}")
         items = c.fetchall()
-        print(len(items))
-        qna = items[random_index(items)]
+        qna = items[random_index(items)] #primary row key
         return qna
 
     conn.close()

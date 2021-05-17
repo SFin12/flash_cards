@@ -1,106 +1,151 @@
-html {
-	box-sizing: border-box;
+body {
+  box-sizing: border-box;
   text-align: center;
   font-size: 1.75rem;
 }
 
-.day_mode {
-	color: black;
-	background-color: whitesmoke;
+/* Only displays on small screens */
+#mobile {
+	display: none;
 }
-
-.night_mode {
-	color: whitesmoke;
-	background-color: black;
-}
-
 
 nav {
-	display: flex;
-	justify-content: space-between;
-	height: 90px;
+  display: flex;
+  justify-content: space-between;
+  height: 90px;
 }
 
-nav a{
-	font-size: medium;
-	color: black
+nav a {
+  font-size: medium;
+  color: black;
+}
+
+nav a:link {
+	text-decoration: none;
 }
 
 .container {
-	margin: 10px;
-	padding: 10px
+  margin: 10px;
+  padding: 10px;
 }
 
 .flex {
-	display: flex;
-	align-items: center;
+	box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .card {
-  width: 300px;
-	height: 150px;
+  width: 450px;
+  height: 300px;
   margin: 50px auto;
   padding: 50px;
-  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, .2);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
   border-radius: 2vw;
   color: wheat;
-  background: linear-gradient(rgb(10,10,200), rgb(50,50,200));
+  background: linear-gradient(rgb(10, 10, 200), rgb(50, 50, 200));
 }
 
 #qa {
-    display: inline-block;
-		margin: auto;
-		color: yellow;
+  display: inline-block;
+  margin: auto;
+  color: yellow;
 }
 
-
-
-input {
-	display: block;
-	width: 40%;
-	font-size: .7rem;
-	margin: auto;
+select, input {
+  display: block;
+  width: 40%;
+  font-size: 0.8rem;
+  margin: 0 auto 30px auto;
 }
 
-
+select {
+	width: 250px;
+	text-align-last: center;
+}
 
 #submit {
-	margin-top: 15px;
-	width: 150px;
-	height: 50px;
-	border-radius: 2vw;
+  margin-top: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 2vw;
 }
+
+.button:hover {
+	background-color: lightsteelblue;
+}
+
+/* Smart Phones */
+@media only screen and (max-width: 600px)   {
+	#mobile {
+		display: flex;
+	}
+	#desktop {
+		display: none;
+	}
+	
+	h1 {
+		display: none;
+	}
+	.card {
+		width: auto;
+		max-width: 350px;
+		min-height: 250px;
+		height: auto;
+		margin: 50px auto;
+		padding: 30px;
+		box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+		border-radius: 2vw;
+		color: wheat;
+		background: linear-gradient(rgb(10, 10, 200), rgb(50, 50, 200));
+	  }
+
+	  input {
+		  width: 90%;
+	  }
+}
+
 
 
 /* Dark and light modes based on system preferences (only tested on mac) */
 :root {
-	--background: white;
-	--color: #2b2b2b;
+  --background: white;
+  --color: #2b2b2b;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--color);
+}
+
+svg {
+	fill:var(--color)
+}
+
+.darko {
+  --background: #2b2b2b;
+  --color: white;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2b2b2b;
+    --color: white;
+  }
+  nav a {
+    font-size: medium;
+    color: white;
   }
 
-  body {
-	background-color: var(--background);
-	color: var(--color);
-  }
 
-  .darko {
-	--background: #2b2b2b;
-	--color: white;
-  }
+svg {
+	fill:gainsboro
+}
+}
 
-  @media (prefers-color-scheme: dark) {
-	:root {
-	  --background: #2b2b2b;
-	  --color: white;
-	}
-	nav a{
-		font-size: medium;
-		color: white
-	}
-  }
+.light {
+  --background: white;
+  --color: #2b2b2b;
 
-  .light {
-	--background: white;
-	--color: #2b2b2b;
-  }
 /* End of dark / light mode section */
