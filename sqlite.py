@@ -31,6 +31,9 @@ def commit_data(data=None):
     categories = ["bible", "entertainment", "history", "math", "other", "science", "sports"]
     conn = sqlite3.connect('qna.db')
 
+    """--------------------------------------"""
+    """Possible Ideas on refactoring database"""
+    """--------------------------------------"""
     #Id, Category, Question, Answer
     
     #Categories
